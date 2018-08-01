@@ -54,7 +54,13 @@ class Di
 
         return $this->container[$name];
     }
-
+    /**
+     * 实例化类
+     *
+     * @param [type] $class
+     * @param array $params
+     * @return void
+     */
     protected function build($class, $params = [])
     {
         $dependencies = [];
