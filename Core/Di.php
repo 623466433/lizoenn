@@ -1,13 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: lizoenn
- * Date: 2018/7/30
- * Time: 14:22
- */
-
 namespace lizoenn;
-
 
 class Di
 {
@@ -50,9 +42,12 @@ class Di
      * @param $name
      * @return mixed
      */
-    public function get($name)
+    public function get($name, $params = [])
     {
         // TODO: Implement get() method.
+        if (is_string($name) && class_exists($name)) {
+            $this->container[$name] = $this->build($name, $params);
+        }
         if (!isset($this->container[$name])) {
             return false;
         }

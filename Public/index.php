@@ -6,5 +6,4 @@
  * Time: 18:12
  */
 
-require_once "./../bootstrap/bootstrap.php";
 require_once "./../Core/start.php";

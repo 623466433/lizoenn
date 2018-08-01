@@ -34,6 +34,7 @@ class AutoLoad
             $filename = ROOT . $item . '/' . $base_src . '.php';
             if (file_exists($filename)) {
                 require_once $filename;
+                unset($filename);
                 return;
             }
         }
@@ -47,7 +48,7 @@ class AutoLoad
      */
     protected function getNamespace($classname)
     {
-        $length = strrpos($classname, '\\');
+        $length = strpos($classname, '\\');
         $prefix = substr($classname, 0, $length + 1);
         $src = substr($classname, $length + 1);
 
